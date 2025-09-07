@@ -49,7 +49,7 @@ function App() {
     <div className="App">
       <header className="header">
         <img
-          src="/images/tours/VicFalls15.jpg"
+          src="/images/tours/Vicfalls15.jpg"
           alt="ジンバブエの美しい風景"
           className="header-bg"
         />
