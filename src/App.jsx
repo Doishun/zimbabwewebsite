@@ -11,7 +11,8 @@ function App() {
       description: "Experience the magnificent Victoria Falls, one of the Seven Wonders of the World.",
       duration: 3,
       type: "adventure",
-      category: "natural"
+      category: "natural",
+      image: "/images/tours/Tour of the falls-12.jpg"
     },
     {
       id: 2,
@@ -19,15 +20,17 @@ function App() {
       description: "Explore Zimbabwe's largest national park and witness incredible wildlife.",
       duration: 5,
       type: "wildlife",
-      category: "safari"
+      category: "safari",
+      image: "/images/tours/Game Drive-2.jpg"
     },
     {
       id: 3,
-      title: "Great Zimbabwe Ruins",
-      description: "Discover the ancient stone city and learn about Zimbabwe's rich history.",
+      title: "Traditional Village Tour",
+      description: "Discover the ancient city and learn about Zimbabwe's rich history.",
       duration: 2,
       type: "cultural",
-      category: "history"
+      category: "history",
+      image: "/images/tours/Traditional Village tour-3.jpg"
     }
   ];
 
@@ -45,8 +48,15 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <h1>🇿🇼 Zimbabwe Adventure Tours</h1>
-        <p>Discover the Beauty of Zimbabwe</p>
+        <img
+          src="/images/tours/VicFalls15.jpg"
+          alt="ジンバブエの美しい風景"
+          className="header-bg"
+        />
+        <div className="header-content">
+          <h1>🇿🇼 Zimbabwe Adventure Tours</h1>
+          <p>Discover the Beauty of Zimbabwe</p>
+        </div>
       </header>
 
       <main className="main-content">
@@ -102,6 +112,7 @@ function App() {
         <div className="tour-grid">
           {filteredTours.map(tour => (
             <div key={tour.id} className="tour-card">
+              <img src={tour.image} alt={tour.title} />
               <h4>{tour.title}</h4>
               <p>{tour.description}</p>
               <p><strong>Duration:</strong> {tour.duration} days</p>
