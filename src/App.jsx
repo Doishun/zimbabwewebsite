@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -37,6 +37,13 @@ function App() {
   // フィルター機能のためのstateを追加
   const [selectedFilter, setSelectedFilter] = React.useState('all');
 
+  // タイトルの更新
+  useEffect(() => {
+    document.title = `Zimbabwe Tours - ${selectedFilter}`;
+  }, [selectedFilter]);
+
+
+
   // フィルタリング関数
   const filteredTours = tours.filter(tour => {
     if (selectedFilter === 'all') return true;
@@ -44,6 +51,16 @@ function App() {
     if (selectedFilter === 'long') return tour.duration >= 5;
     return tour.type === selectedFilter;
   });
+
+  //アニメーション効果
+  useEffect(() => {
+    const cards = document.querySelectorAll('.tour-card');
+    cards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add('visible');
+      }, index * 200);
+    });
+  }, [filteredTours]);
 
   return (
     <div className="App">
